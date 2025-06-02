@@ -16,10 +16,8 @@ package_version = meson.project_version()
 package_name = get_option('package_name')
 assert(package_name != '', 'package_name must be specified')
 
-pkgdatadir = join_paths(get_option('datadir'), package_name)
 pkglibdir = join_paths(get_option('libdir'), package_name)
 
-girdir = join_paths(pkgdatadir, 'gir-1.0')
 typelibdir = join_paths(pkglibdir, 'girepository-1.0')
 
 gtk_dep = dependency('gtk4')
