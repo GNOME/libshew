@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020 Florian Müllner <fmuellner@gnome.org>
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
 shew_public_headers = files(
   'shew-external-window.h',
   'shew-window-exporter.h',

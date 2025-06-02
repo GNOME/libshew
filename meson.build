@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020 Florian Müllner <fmuellner@gnome.org>
+# SPDX-License-Identifier: LGPL-2.1-or-later
+
 project('shew', 'c',
   version: '48.1',
   meson_version: '>= 1.1.0',
