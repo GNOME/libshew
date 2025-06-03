@@ -17,6 +17,14 @@ libshew = library(full_name,
   install: true,
 )
 
+libshew_dep = declare_dependency(
+  link_with: libshew,
+  dependencies: [gtk_dep],
+  include_directories: include_directories('.'),
+)
+
+meson.override_dependency('libshew', libshew_dep)
+
 libshew_gir = gnome.generate_gir(libshew,
   sources: shew_sources + shew_public_headers,
   nsversion: api_version,
