@@ -1,11 +1,27 @@
 # SPDX-FileCopyrightText: 2025 Florian Müllner <fmuellner@gnome.org>
 # SPDX-License-Identifier: LGPL-2.1-or-later
 
+exported_client = executable('exported-client',
+  sources: 'exported-client.c',
+  dependencies: [
+    libshew_dep,
+  ],
+)
+
 test_cases = [
   {
     'name': 'exporter',
     'sources': [
       'test-exporter.c',
+    ],
+  },
+  {
+    'name': 'external-window',
+    'sources': [
+      'test-external-window.c',
+    ],
+    'depends': [
+      exported_client,
     ],
   },
 ]
@@ -25,5 +41,6 @@ foreach test_case: test_cases
       'GSETTINGS_BACKEND': 'memory',
       'GTK_A11Y': 'none',
     },
+    depends: test_case.get('depends', []),
   )
 endforeach
