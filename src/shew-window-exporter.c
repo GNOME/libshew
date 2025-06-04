@@ -97,6 +97,7 @@ shew_window_exporter_export (ShewWindowExporter  *exporter,
       G_GNUC_END_IGNORE_DEPRECATIONS
 
       g_task_return_pointer (task, g_strdup_printf ("x11:%x", xid), g_free);
+      return;
     }
 #endif
 
@@ -107,14 +108,12 @@ shew_window_exporter_export (ShewWindowExporter  *exporter,
       gdk_wayland_toplevel_export_handle (GDK_WAYLAND_TOPLEVEL (s),
                                           wayland_window_exported,
                                           g_steal_pointer (&task), NULL);
+      return;
     }
 #endif
 
-  if (task != NULL && !g_task_get_completed (task))
-    {
-      g_task_return_new_error (task, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
-                               "Unsupported windowing system");
-    }
+  g_task_return_new_error (task, G_IO_ERROR, G_IO_ERROR_NOT_SUPPORTED,
+                           "Unsupported windowing system");
 }
 
 char *
