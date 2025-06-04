@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: LGPL-2.1-or-later
 
 project(
-  'libshew-tests',
+  'test-project',
   'c',
   version: '0',
   license: 'LGPL-2.1-or-later',
@@ -10,6 +10,6 @@ project(
 
 libshew_dep = dependency('libshew',
   default_options: [
-    'package_name=libshew-tests',
+    'package_name=@0@'.format(meson.project_name()),
   ],
 )
