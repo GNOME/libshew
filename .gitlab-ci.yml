@@ -6,3 +6,36 @@ include:
       meson-sourcedir: tests
       asan: disabled
       before-script: mkdir -m 1777 /tmp/.X11-unix
+  - project: Infrastructure/freedesktop-ci-templates
+    file: templates/ci-fairy.yml
+
+stages:
+ - review
+ - build
+
+.skip-git-clone:
+  variables:
+    GIT_STRATEGY: none
+
+.only-merge-requests:
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^$/'
+      when: never
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+      when: on_success
+
+check-merge-request:
+  extends:
+    - .fdo.ci-fairy
+    - .skip-git-clone
+  stage: review
+  script:
+    ci-fairy check-merge-request --require-allow-collaboration --junit-xml=check-merge-request-report.xml
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - check-merge-request-report.xml
+    reports:
+      junit: check-merge-request-report.xml
+  rules:
+    - !reference [.only-merge-requests, rules]
