@@ -5,3 +5,8 @@ option('package_name',
   type: 'string',
   description: 'Parent package the library is built into'
 )
+option('tests',
+  type: 'boolean',
+  value: false,
+  description: 'Build tests',
+)

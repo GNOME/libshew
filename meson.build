@@ -37,4 +37,7 @@ add_test_setup('headless',
 )
 
 subdir('src')
-subdir('tests')
+
+if get_option('tests')
+  subdir('tests')
+endif

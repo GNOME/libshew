@@ -11,5 +11,6 @@ project(
 libshew_dep = dependency('libshew',
   default_options: [
     'package_name=@0@'.format(meson.project_name()),
+    'tests=true',
   ],
 )
