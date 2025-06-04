@@ -27,3 +27,4 @@ gtk_dep = dependency('gtk4')
 x11_dep = dependency('x11', required: false)
 
 subdir('src')
+subdir('tests')
