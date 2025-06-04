@@ -34,7 +34,6 @@ add_test_setup('headless',
     '--headless',
     '--',
   ],
-  is_default: true,
 )
 
 subdir('src')
