@@ -34,7 +34,7 @@ build-gnomeos:
     - !reference [".build-gnomeos common", script]
     - dbus-run-session
         -- mutter --headless --wayland --virtual-monitor 1024x768
-          -- meson test -C ${_BUILDDIR} --print-errorlogs --no-stdsplit --no-rebuild
+          -- meson test -C ${_BUILDDIR} --print-errorlogs --no-stdsplit --no-rebuild --setup plain
 
 check-merge-request:
   extends:

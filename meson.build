@@ -26,5 +26,16 @@ typelibdir = join_paths(pkglibdir, 'girepository-1.0')
 gtk_dep = dependency('gtk4')
 x11_dep = dependency('x11', required: false)
 
+add_test_setup('plain')
+add_test_setup('headless',
+  exe_wrapper: [
+    find_program('dbus-run-session'),
+    find_program('mutter'),
+    '--headless',
+    '--',
+  ],
+  is_default: true,
+)
+
 subdir('src')
 subdir('tests')
