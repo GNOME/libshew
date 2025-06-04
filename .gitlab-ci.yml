@@ -43,6 +43,21 @@ check-merge-request:
   rules:
     - !reference [.only-merge-requests, rules]
 
+check-commit-log:
+  extends:
+    - .fdo.ci-fairy
+  stage: review
+  script:
+    ci-fairy check-commits --junit-xml=commit-messages-report.xml
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - commit-messages-report.xml
+    reports:
+      junit: commit-messages-report.xml
+  rules:
+    - !reference [.only-merge-requests, rules]
+
 check-reuse:
   stage: review
   image:
