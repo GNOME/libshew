@@ -7,6 +7,7 @@ include:
   - component: gitlab.gnome.org/GNOME/citemplates/gnomeos-basic-ci@master
     inputs:
       meson-sourcedir: test-project
+      run-tests: no # run tests ourselves to not disable x11 support
       asan: disabled
       before-script: mkdir -m 1777 /tmp/.X11-unix
   - project: Infrastructure/freedesktop-ci-templates
@@ -26,6 +27,14 @@ stages:
       when: never
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
       when: on_success
+
+build-gnomeos:
+  extends: ".build-gnomeos common"
+  script:
+    - !reference [".build-gnomeos common", script]
+    - dbus-run-session
+        -- mutter --headless --wayland --virtual-monitor 1024x768
+          -- meson test -C ${_BUILDDIR} --print-errorlogs --no-stdsplit --no-rebuild
 
 check-merge-request:
   extends:
