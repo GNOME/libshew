@@ -42,3 +42,11 @@ check-merge-request:
       junit: check-merge-request-report.xml
   rules:
     - !reference [.only-merge-requests, rules]
+
+check-reuse:
+  stage: review
+  image:
+    name: fsfe/reuse:latest
+    entrypoint: ['']
+  script:
+    - reuse lint
