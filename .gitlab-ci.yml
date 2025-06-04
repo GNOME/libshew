@@ -1,0 +1,8 @@
+include:
+  - project: GNOME/citemplates
+    file: templates/default-rules.yml
+  - component: gitlab.gnome.org/GNOME/citemplates/gnomeos-basic-ci@master
+    inputs:
+      meson-sourcedir: tests
+      asan: disabled
+      before-script: mkdir -m 1777 /tmp/.X11-unix
