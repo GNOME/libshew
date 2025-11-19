@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: LGPL-2.1-or-later
 
 leak:get_wayland_display
-leak:get_x11_display
 
 # Fontconfig
 leak:FcFontSetList
