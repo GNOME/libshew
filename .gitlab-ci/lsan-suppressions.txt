@@ -3,14 +3,6 @@
 
 leak:get_wayland_display
 
-# Fontconfig
-leak:FcFontSetList
-leak:FcPatternObjectInsertElt
-leak:FcPatternObjectInsertElt2
-leak:FcFontRenderPrepare
-leak:FcDefaultSubstitute
-leak:FcDefaultSubstituteWithPat
-leak:FcConfigSubstituteWithPat
-
-# pango
-leak:pango_cairo_fc_font_map_fontset_key_substitute
+leak:libEGL_mesa.so
+leak:libfontconfig.so
+leak:libcairo.so
