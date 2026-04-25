@@ -37,7 +37,7 @@ struct _ShewExternalWindowWayland
 };
 
 G_DEFINE_TYPE (ShewExternalWindowWayland, shew_external_window_wayland,
-               SHEW_TYPE_EXTERNAL_WINDOW)
+               SHEW_TYPE_EXTERNAL_WINDOW);
 
 static GdkDisplay *
 get_wayland_display (void)

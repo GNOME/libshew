@@ -26,7 +26,7 @@
 
 
 #define SHEW_TYPE_EXTERNAL_WINDOW (shew_external_window_get_type ())
-G_DECLARE_DERIVABLE_TYPE (ShewExternalWindow, shew_external_window, SHEW, EXTERNAL_WINDOW, GObject)
+G_DECLARE_DERIVABLE_TYPE (ShewExternalWindow, shew_external_window, SHEW, EXTERNAL_WINDOW, GObject);
 
 struct _ShewExternalWindowClass
 {
