@@ -32,7 +32,7 @@ struct _ShewWindowExporter
   GtkWindow *window;
 };
 
-G_DEFINE_TYPE (ShewWindowExporter, shew_window_exporter, G_TYPE_OBJECT);
+G_DEFINE_FINAL_TYPE (ShewWindowExporter, shew_window_exporter, G_TYPE_OBJECT);
 
 enum
 {
