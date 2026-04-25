@@ -19,9 +19,10 @@
  *       Jonas Ådahl <jadahl@redhat.com>
  */
 
+#include "shew-external-window.h"
+
 #include <string.h>
 
-#include "shew-external-window.h"
 #include "shew-external-window-wayland.h"
 
 enum

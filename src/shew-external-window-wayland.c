@@ -19,13 +19,13 @@
  *       Jonas Ådahl <jadahl@redhat.com>
  */
 
+#include "shew-external-window-wayland.h"
+
 #include <gdk/gdk.h>
 
 #ifdef GDK_WINDOWING_WAYLAND
 #include <gdk/wayland/gdkwayland.h>
 #endif
-
-#include "shew-external-window-wayland.h"
 
 static GdkDisplay *wayland_display;
 
