@@ -26,6 +26,6 @@
 #include "shew-external-window.h"
 
 #define SHEW_TYPE_EXTERNAL_WINDOW_WAYLAND (shew_external_window_wayland_get_type ())
-G_DECLARE_FINAL_TYPE (ShewExternalWindowWayland, shew_external_window_wayland, SHEW, EXTERNAL_WINDOW_WAYLAND, ShewExternalWindow)
+G_DECLARE_FINAL_TYPE (ShewExternalWindowWayland, shew_external_window_wayland, SHEW, EXTERNAL_WINDOW_WAYLAND, ShewExternalWindow);
 
 ShewExternalWindowWayland *shew_external_window_wayland_new (const char *handle_str);

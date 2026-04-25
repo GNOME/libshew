@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 
 #define SHEW_TYPE_WINDOW_EXPORTER (shew_window_exporter_get_type ())
-G_DECLARE_FINAL_TYPE (ShewWindowExporter, shew_window_exporter, SHEW, WINDOW_EXPORTER, GObject)
+G_DECLARE_FINAL_TYPE (ShewWindowExporter, shew_window_exporter, SHEW, WINDOW_EXPORTER, GObject);
 
 ShewWindowExporter *shew_window_exporter_new (GtkWindow *window);
 
