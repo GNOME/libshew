@@ -30,7 +30,10 @@ enum
   PROP_0,
 
   PROP_DISPLAY,
+  N_PROPS
 };
+
+static GParamSpec *props[N_PROPS] = { NULL, };
 
 typedef struct _ShewExternalWindowPrivate
 {
@@ -137,11 +140,11 @@ shew_external_window_class_init (ShewExternalWindowClass *klass)
   object_class->get_property = shew_external_window_get_property;
   object_class->set_property = shew_external_window_set_property;
 
-  g_object_class_install_property (object_class,
-                                   PROP_DISPLAY,
-                                   g_param_spec_object ("display", NULL, NULL,
-                                                        GDK_TYPE_DISPLAY,
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_CONSTRUCT_ONLY |
-                                                        G_PARAM_STATIC_STRINGS));
+  props[PROP_DISPLAY] = g_param_spec_object ("display", NULL, NULL,
+                                             GDK_TYPE_DISPLAY,
+                                             G_PARAM_READWRITE |
+                                             G_PARAM_CONSTRUCT_ONLY |
+                                             G_PARAM_STATIC_STRINGS);
+
+  g_object_class_install_properties (object_class, N_PROPS, props);
 }

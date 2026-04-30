@@ -39,7 +39,10 @@ enum
   PROP_0,
 
   PROP_WINDOW,
+  N_PROPS
 };
+
+static GParamSpec *props[N_PROPS] = { NULL, };
 
 ShewWindowExporter *
 shew_window_exporter_new (GtkWindow *window)
@@ -196,11 +199,11 @@ shew_window_exporter_class_init (ShewWindowExporterClass *klass)
   object_class->set_property = shew_window_exporter_set_property;
   object_class->dispose = shew_window_exporter_dispose;
 
-  g_object_class_install_property (object_class,
-                                   PROP_WINDOW,
-                                   g_param_spec_object ("window", NULL, NULL,
-                                                        GTK_TYPE_WINDOW,
-                                                        G_PARAM_READWRITE |
-                                                        G_PARAM_CONSTRUCT_ONLY |
-                                                        G_PARAM_STATIC_STRINGS));
+  props[PROP_WINDOW] = g_param_spec_object ("window", NULL, NULL,
+                                            GTK_TYPE_WINDOW,
+                                            G_PARAM_READWRITE |
+                                            G_PARAM_CONSTRUCT_ONLY |
+                                            G_PARAM_STATIC_STRINGS);
+
+  g_object_class_install_properties (object_class, N_PROPS, props);
 }
