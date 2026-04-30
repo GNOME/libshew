@@ -37,7 +37,7 @@ typedef struct _ShewExternalWindowPrivate
   GdkDisplay *display;
 } ShewExternalWindowPrivate;
 
-G_DEFINE_TYPE_WITH_PRIVATE (ShewExternalWindow, shew_external_window, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_PRIVATE (ShewExternalWindow, shew_external_window, G_TYPE_OBJECT)
 
 ShewExternalWindow *
 shew_external_window_new_from_handle (const char *handle_str)
